@@ -2,9 +2,19 @@
         <div class="parent">
             <section class="section_main">
                 <article>
-                    <span class="main_span">
-                        <h2 class="song_title">{{ current.title }} - <span>{{ current.artist }}</span></h2>
+                    <div class="main_span">
+
+                        <span class="selection_span">
+                            
+                            <h3 class="song_title">{{ current.title }}</h3>
+                        
+                            <h3 class="song_artist">{{ current.artist }}</h3>
+                            <img v-bind:src="current.image_url">
+                        
+                        
+                        </span>
             
+                        <span class="buttons_span">
                         <button class="prev">PREV</button>
 
                         <button v-if="!isPlaying" @click="play()">PLAY</button>
@@ -16,16 +26,20 @@
                         <p v-if="!isPlaying">pick a song</p>
 
                         <p v-else>now playing</p>
+
                     </span>
+                    </div>
 
                 </article>
                 <article class="playlist">
 
+                    <span class="playlist_span">
+
                     <h3>The Playlist</h3>
 
-                    <button v-for="song in songs" :key="song.title" @click="play(song)" :class="(song.title == current.title) ? 'song_playing' : 'song'">{{ song.title }} - {{ song.artist }} </button>
+                    <button v-for="song in songs" :key="song.title" @click="play(song)" :class="(song.title == current.title) ? 'song_playing' : 'song'">{{ song.title }} - {{ song.artist }}  </button>
 
-
+                </span>
                
               
 
@@ -111,7 +125,7 @@
 
                     image_url: `https://upload.wikimedia.org/wikipedia/en/thumb/1/10/Nespithe.JPG/220px-Nespithe.JPG`,
 
-                    src: ``
+                    src: `https://www.youtube.com/watch?v=P6Xv10P73Pk&ab_channel=alreadytakenthe3rd`
 
 
 
@@ -204,6 +218,45 @@
 
 }
 
+.selection_span{
+
+display: grid;
+
+justify-items: center;
+
+align-items: center;
+
+grid-template-rows: 1fr 1fr 1fr;
+
+text-align: center;
+
+}
+
+.selection_span>img{
+
+    width: 100px;
+
+margin-bottom: 20px;
+}
+
+.selection_span>h3{
+
+  width: 100%;
+
+}
+
+.buttons_span{
+
+
+    display: grid;
+
+    justify-items: center;
+
+    align-items: center;
+
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+
+}
 
 .main_span{
 
