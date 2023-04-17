@@ -26,6 +26,12 @@ export default {
 
 <style>
 
+*{
+
+  padding: 0px;
+  margin: 0px;
+}
+
 .Page_Header{
 display: grid;
 grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));

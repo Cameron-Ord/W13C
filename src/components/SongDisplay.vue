@@ -3,8 +3,8 @@
             <section class="section_main">
                 <article class="main_article">
                     <div class="main_span">
-
                         <span class="selection_span">
+                            <span ref="selection">
 
                         
                         
@@ -21,7 +21,7 @@
                             <!--binding the image that is selected from the object inside the current variable-->
                             <img v-if="isPlaying"  v-bind:src="current[`image_url`]">
                         
-                        
+                        </span>
                         </span>
             
                         <span class="buttons_span">
@@ -184,6 +184,16 @@
                 if(typeof song[`song_id`] !== "undefined"){
                     this.current = song;
 
+
+                    if(this.$refs[`selection`][`style`][`grid-template-rows`] !== `1fr 1fr 1fr`){
+
+                        this.$refs[`selection`][`style`][`grid-template-rows`] = `10vh 10vh 10vh`;
+
+                    } else {
+
+
+                        this.$refs[`selection`][`style`][`grid-template-rows`] === "null";
+                    }
                 
           
 
@@ -288,30 +298,45 @@
 
     align-items: center;
 
-    grid-template-rows: auto;
-
     text-align: center;
 
-    width: 80%;
-    
+    width: 100%;
 
-    background-color: #F79824;
+}
 
-    border-radius: 50px;
+.parent>.section_main>.main_article>.main_span>.selection_span>span{
 
-    margin-top: 30px;
+display: grid;
 
-    margin-bottom: 30px;
+justify-items: center;
+
+align-items: center;
+
+text-align: center;
+
+width: 80%;
+
+background-color: #F79824;
+
+border-radius: 50px;
+
+margin-top: 25px;
+
+margin-bottom: 25px;
 
 
 }
 
-.selection_span>img{
+.selection_span>span>h3{
+
+
+    width:  90%;
+}
+.selection_span>span>img{
 
     height: 200px;
     width: 200px;
     border-radius: 25px;
-
     margin-top: 50px;
     margin-bottom: 50px;
 }
