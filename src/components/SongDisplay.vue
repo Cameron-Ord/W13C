@@ -47,7 +47,7 @@
                     <!--clicking calls the play function-->
 
                     <!--the :class selects the song title and makes it equal to the current title-->
-                    <button v-for="song in songs" :key="song[`title`]" @click="play(song)" :class="(song[`title`] == current[`title`])">{{ song[`title`] }} - {{ song[`title`] }}  </button>
+                    <button v-for="song in songs" :key="song[`title`]" @click="play(song)" :class="(song[`title`] == current[`title`])">{{ song[`title`] }} - {{ song[`artist`] }}  </button>
 
                 </span>
                
@@ -217,7 +217,7 @@
 
             //defining current before mount//
 
-            this.current = this.songs[this[`index`]];
+            this.current = this.songs[this.index];
 
 
 
