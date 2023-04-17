@@ -8,7 +8,7 @@
             
                     <button class="prev">PREV</button>
                     <button class="play" v-if="!isPlaying" @click="play">PLAY</button>
-                    <button class="pause" v-else>PAUSE</button>
+                    <button class="pause" v-else @click="pause">PAUSE</button>
                     <button class="next">NEXT</button>
              
                     <p v-if="!isPlaying">pick a song</p>
@@ -116,23 +116,16 @@
 
         methods: {
 
-            play (song) {
+            play () {
 
-                if(typeof song.title != undefined){
-                    this.current = song;
 
-                    
-
-                   this.player.artist = this.current.artist;
-                }
-                this.player.play()
             
                 this.isPlaying = true;
             },
 
             pause (){
 
-                this.player.pause();
+   
                 this.isPlaying = false;
             }
 
