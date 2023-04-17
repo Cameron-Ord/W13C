@@ -9,6 +9,7 @@
                             <h3 class="song_title">{{ current.title }}</h3>
                         
                             <h3 class="song_artist">{{ current.artist }}</h3>
+
                             <img v-bind:src="current.image_url">
                         
                         
@@ -17,7 +18,9 @@
                         <span class="buttons_span">
                         <button class="prev">PREV</button>
 
-                        <button class="pause" @click="pause">PAUSE</button>
+                        <button class="play" v-if="!isPlaying" @click="play">Play</button>
+
+                        <button class="pause" v-else @click="pause">PAUSE</button>
 
                         <button class="next">NEXT</button>
              
@@ -59,11 +62,12 @@
         data() {
             return {
 
-                isPlaying: false,
+
+                current:{},
 
                 index: 0,
 
-                current:{},
+                isPlaying: false,
           
                 songs: [{
 
@@ -157,7 +161,7 @@
 
             play (song) {
 
-                if(typeof song.src !== undefined){
+                if(typeof song.src !== "undefined"){
                     this.current = song;
 
                 
