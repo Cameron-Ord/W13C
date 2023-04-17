@@ -7,8 +7,8 @@
                     <h2 class="song_title">{{ current.title }} - <span>{{ current.artist }}</span></h2>
             
                     <button class="prev">PREV</button>
-                    <button class="play" v-if="!isPlaying" @click="play">PLAY</button>
-                    <button class="pause" v-else @click="pause">PAUSE</button>
+
+                    <button class="pause" @click="pause">PAUSE</button>
                     <button class="next">NEXT</button>
              
                     <p v-if="!isPlaying">pick a song</p>
@@ -116,16 +116,21 @@
 
         methods: {
 
-            play () {
+            play (song) {
 
+                if(typeof song.title != undefined){
+                    this.current = song;
 
-            
+                
+
+                }
+
                 this.isPlaying = true;
             },
 
             pause (){
 
-   
+
                 this.isPlaying = false;
             }
 
