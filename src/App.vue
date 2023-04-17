@@ -32,6 +32,8 @@ grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 min-height: 10vh;
 justify-items: center;
 align-items: center;
+background-color: #F79824;
+width: 100%;
 }
 
 .Page_Main{
@@ -40,6 +42,8 @@ grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 min-height: 80vh;
 justify-items: center;
 align-items: center;
+background-color: #31393C;
+width: 100%;
 }
 
 .Page_Footer{
@@ -48,5 +52,7 @@ grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 min-height: 10vh;
 justify-items: center;
 align-items: center;
+background-color: #F79824;
+width: 100%;
 }
 </style>

@@ -1,17 +1,25 @@
 <template>
         <div class="parent">
             <section class="section_main">
-                <article>
+                <article class="main_article">
                     <div class="main_span">
 
                         <span class="selection_span">
-                            <!--displaying the selected title using a current variable-->
-                            <h3 class="song_title">{{ current[`title`] }}</h3>
+
                         
-                            <h3 class="song_artist">{{ current[`artist`] }}</h3>
+                        
+                     
+                            <p v-if="!isPlaying">pick a song</p>
+                        <!--if isPlaying = false, injects 'now playing'-->
+                        <p v-else></p>
+
+                            <!--displaying the selected title using a current variable-->
+                            <h3 v-if="isPlaying" class="song_title">{{ current[`title`] }}</h3>
+                        
+                            <h3 v-if="isPlaying"  class="song_artist">{{ current[`artist`] }}</h3>
 
                             <!--binding the image that is selected from the object inside the current variable-->
-                            <img v-bind:src="current[`image_url`]">
+                            <img v-if="isPlaying"  v-bind:src="current[`image_url`]">
                         
                         
                         </span>
@@ -27,11 +35,7 @@
 
                         <button class="next">NEXT</button>
                         <!--if isPlaying is false, injects 'pick a song' p tag-->
-             
-                        <p v-if="!isPlaying">pick a song</p>
-                        <!--if isPlaying = false, injects 'now playing'-->
-
-                        <p v-else>now playing</p>
+            
 
                     </span>
                     </div>
@@ -226,21 +230,174 @@
 </script>
 
 <style scoped>
-
-
-
-.section_main{
+.parent{
 
     display: grid;
 
-    align-items: center;
+    width: 100%;
 
     justify-items: center;
+
+    align-items: center;
+}
+
+.parent>.section_main{
+
+    display: grid;
+
+    justify-items: center;
+
+    align-items: center;
+
+    width: 100%;
+
+}
+
+.parent>.section_main>.main_article{
+
+    width: 100%;
+
+    display: grid;
+
+    justify-items: center;
+
+    align-items: center;
+
+    text-align: center;
+
+ 
+}
+
+.parent>.section_main>.main_article>.main_span{
+
+
+    width: 100%;
+
+    display: grid;
+
+    justify-items: center;
+
+    align-items: center;
+
+}
+.parent>.section_main>.main_article>.main_span>.selection_span{
+
+    display: grid;
+
+    justify-items: center;
+
+    align-items: center;
+
+    grid-template-rows: auto;
+
+    text-align: center;
+
+    width: 80%;
+    
+
+    background-color: #F79824;
+
+    border-radius: 50px;
+
+    margin-top: 30px;
+
+    margin-bottom: 30px;
 
 
 }
 
-.selection_span{
+.selection_span>img{
+
+    height: 200px;
+    width: 200px;
+    border-radius: 25px;
+
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.parent>.section_main>.main_article>.main_span>.buttons_span{
+
+    width: 80%;
+
+    grid-template-rows: 30px 30px 30px;
+
+    display: grid;
+
+    justify-items: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    margin-top: 25px;
+
+    margin-bottom: 25px;
+
+    background-color: #F79824;
+
+    padding-top: 25px;
+
+    padding-bottom: 25px;
+
+    border-radius: 50px;
+}  
+
+.parent>.section_main>.main_article>.main_span>.buttons_span>button{
+
+
+    width: 70%;
+
+    display: grid;
+
+
+    justify-items: center;
+
+
+    align-items: center;
+
+
+    text-align: center;
+
+}
+.parent>.section_main>.playlist{
+    width: 100%;
+
+    display: grid;
+
+    justify-items: center;
+
+    align-items: center;
+}
+
+.parent>.section_main>.playlist>.playlist_span{
+
+    display: grid;
+
+    justify-items: center;
+
+    align-items: center;
+
+    width: 80%;
+
+    margin-top: 25px;
+
+    margin-bottom: 25px;
+
+    background-color: #F79824;
+
+    padding-top: 25px;
+
+    padding-bottom: 25px;
+
+    border-radius: 50px;
+
+
+  
+
+}
+
+.parent>.section_main>.playlist>.playlist_span>button{
 
 display: grid;
 
@@ -248,59 +405,7 @@ justify-items: center;
 
 align-items: center;
 
-grid-template-rows: 1fr 1fr 1fr;
+width: 70%;
 
-text-align: center;
-
-}
-
-.selection_span>img{
-
-    width: 100px;
-
-margin-bottom: 20px;
-}
-
-.selection_span>h3{
-
-  width: 100%;
-
-}
-
-.buttons_span{
-
-
-    display: grid;
-
-    justify-items: center;
-
-    align-items: center;
-
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
-
-}
-
-.main_span{
-
-    display:grid;
-
-
-
-    align-items: center;
-
-    justify-items: center;
-}
-
-button{
-
-
-    display: grid;
-
-    width: 300px;
-
-    align-items: center;
-
-
-    justify-items: center;
 }
 </style>
