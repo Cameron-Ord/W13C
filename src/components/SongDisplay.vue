@@ -89,7 +89,7 @@
                 },
                 {
 
-                    title: `Dimished to B`,
+                    title: `Diminished to B`,
 
                     artist: `Necrophagist`,
 
