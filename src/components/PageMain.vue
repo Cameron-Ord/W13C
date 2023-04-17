@@ -4,7 +4,13 @@
             <article>
                 <span class="main_span">
 
-                    <button v-for="(song, counter) in songs" :key="counter" :post="song" @highlight_post="show_music">{{ song[`title`] }}</button>
+                    <button v-for="(song, counter) in songs" :key="counter" :post="song" @click="choose_song" >{{ song[`title`] }}</button>
+
+                </span>
+                <span>
+
+
+
 
                 </span>
             </article>
@@ -15,13 +21,14 @@
 <script>
     export default {
 
+ 
         methods:{
 
-            show_music(post) {
+            choose_song(){
 
-                this.special_content = post[`title`];
-
+                this.$root.$emit(`highlight_post`, this.post);
             }
+
 
 
         },

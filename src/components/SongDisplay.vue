@@ -4,10 +4,10 @@
 
             <span>
 
-                <button @click="play">PLAY MUSIC</button>
+                <button @click="show_post">PLAY MUSIC</button>
 
-                <h1>{{ Object[`title`] }}</h1>
 
+            
 
       
             </span>
@@ -21,23 +21,22 @@
         
         props: {
 
+
             post: Object
-
-
-
         },
-
 
         methods:{
 
+            show_post(post) {
 
-            play(){
-                
-                this.$emit(`highlight_post`, this.post);
+                this.chosen_song= post;
+            },
 
-            }
+        },
+
+        mounted:(){
+            this.$root.$on(`highlight_post`, this.show_post)
         }
-
 
     }
 </script>
