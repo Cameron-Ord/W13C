@@ -140,8 +140,7 @@
 
                     image_url: `https://i.scdn.co/image/3092c7fb063d40e02cb9c890dad854bd1e34fbfc`,
 
-                    src: ``
-
+                    src: require(`../assets/raining-steel.mp3`)
                  
 
 
