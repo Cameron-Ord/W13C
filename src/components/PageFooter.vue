@@ -16,6 +16,13 @@
 <style scoped>
 .footer_div{
 
-    
+    display: grid;
+
+    grid-template-columns: 40vw 40vw;
+
+    align-items: center;
+
+    justify-items: center;
+
 }
 </style>

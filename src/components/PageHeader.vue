@@ -21,6 +21,9 @@
 
     grid-template-columns: 40vw 40vw;
     
+    justify-items: center;
+
+    align-items: center;
 }
 
 </style>

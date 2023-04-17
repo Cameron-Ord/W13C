@@ -1,24 +1,24 @@
 <template>
   <div>
     <header class="Page_Header"><page-header></page-header></header>
-    <main class="Page_Main"><page-main></page-main></main>
+    <main class="Page_Main"><page-main></page-main><song-display></song-display></main>
     <footer class="Page_Footer"><page-footer></page-footer></footer>
   </div>
 </template>
 
 <script>
 import PageHeader from './components/PageHeader.vue';
-import PageMain from './components/PageMain.vue';
 import PageFooter from './components/PageFooter.vue';
+import PageMain from './components/PageMain.vue';
 import SongDisplay from './components/SongDisplay.vue';
 
 export default {
-  name: 'Layout',
+  name: 'Layout_Page',
   components: {
 
     PageHeader,
-    PageMain,
     PageFooter,
+    PageMain,
     SongDisplay
   }
 }
@@ -30,17 +30,23 @@ export default {
 display: grid;
 grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 min-height: 10vh;
+justify-items: center;
+align-items: center;
 }
 
 .Page_Main{
 display: grid;
 grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 min-height: 80vh;
+justify-items: center;
+align-items: center;
 }
 
 .Page_Footer{
 display: grid;
 grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 min-height: 10vh;
+justify-items: center;
+align-items: center;
 }
 </style>
