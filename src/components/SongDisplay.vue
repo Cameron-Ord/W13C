@@ -80,7 +80,7 @@
 
                     image_url: `https://m.media-amazon.com/images/I/51PHl1VZO3L._AC_SX342_.jpg`,
 
-                    src: require(`../assets/roller-mobster.mp3`)
+   
 
    
 
@@ -97,7 +97,7 @@
 
                     image_url: `https://upload.wikimedia.org/wikipedia/en/thumb/a/af/Epitaph_cover.jpg/220px-Epitaph_cover.jpg`,
 
-                    src: require(`../assets/dimished-to-b.mp3`)
+
          
 
 
@@ -111,8 +111,7 @@
 
                     image_url: `https://upload.wikimedia.org/wikipedia/en/f/f9/Disincarnate.jpg`,
 
-                    src: require(`../assets/confine-of-shadows.mp3`)
-
+    
          
 
 
@@ -127,8 +126,7 @@
 
                     image_url: `https://upload.wikimedia.org/wikipedia/en/thumb/1/10/Nespithe.JPG/220px-Nespithe.JPG`,
 
-                    src: require(`../assets/planet.mp3`)
-
+              
                     
 
 
@@ -144,7 +142,6 @@
 
                     image_url: `https://i.scdn.co/image/3092c7fb063d40e02cb9c890dad854bd1e34fbfc`,
 
-                    src: require(`../assets/raining-steel.mp3`)
                  
 
 
@@ -152,7 +149,7 @@
 
             ],
 
-            player: new Audio()
+         
 
             }
         },
@@ -166,17 +163,15 @@
 
                 
           
-                    this.player.src = this.current.src;
 
                 }
-                this.player.play();
+           
                 this.isPlaying = true;
             },
 
             pause (){
 
 
-                this.player.pause();
                 this.isPlaying = false;
             },
 
@@ -199,7 +194,6 @@
 
             this.current = this.songs[this.index];
 
-            this.player.src =  this.current.src;
 
 
         }
