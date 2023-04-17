@@ -5,26 +5,31 @@
                     <div class="main_span">
 
                         <span class="selection_span">
-                            
+                            <!--displaying the selected title using a current variable-->
                             <h3 class="song_title">{{ current.title }}</h3>
                         
                             <h3 class="song_artist">{{ current.artist }}</h3>
 
+                            <!--binding the image that is selected from the object inside the current variable-->
                             <img v-bind:src="current.image_url">
                         
                         
                         </span>
             
                         <span class="buttons_span">
+                            <!--Some buttons (prev and next do not work)-->
                         <button class="prev">PREV</button>
-
+                        <!--an if statement that will show the play button only if isPlaying is set to false-->
+                        <!--add event listener set to click to call the play() function-->
                         <button class="play" v-if="!isPlaying" @click="play">PLAY</button>
-
+                        <!--if isPlaying === true, it will show a pause button that calls the pause function-->
                         <button class="pause" v-else @click="pause">PAUSE</button>
 
                         <button class="next">NEXT</button>
+                        <!--if isPlaying is false, injects 'pick a song' p tag-->
              
                         <p v-if="!isPlaying">pick a song</p>
+                        <!--if isPlaying = false, injects 'now playing'-->
 
                         <p v-else>now playing</p>
 
@@ -37,8 +42,12 @@
                     <span class="playlist_span">
 
                     <h3>The Playlist</h3>
+                    <!--the loop for the selection buttons-->
 
-                    <button v-for="song in songs" :key="song.title" @click="play(song)" :class="(song.title == current.title) ? 'song_playing' : 'song'">{{ song.title }} - {{ song.artist }}  </button>
+                    <!--clicking calls the play function-->
+
+                    <!--the :class selects the song title and makes it equal to the current title-->
+                    <button v-for="song in songs" :key="song.title" @click="play(song)" :class="(song.title == current.title)">{{ song.title }} - {{ song.artist }}  </button>
 
                 </span>
                
@@ -62,13 +71,18 @@
         data() {
             return {
 
+                //current variable to select and hold the song object//
 
                 current:{},
 
                 index: 0,
 
+                //setting the isPlaying to false by default so that it only plays when you click the correct buttons//
+
                 isPlaying: false,
           
+                //the array of objects containing the key values//
+
                 songs: [{
 
 
@@ -156,9 +170,14 @@
 
         methods: {
 
+            //methods containing the respective functions//
+
+        
             play (song) {
 
-                if(typeof song.src !== "undefined"){
+                //if the song_id is not undefined, make current equal to the song object//
+
+                if(typeof song.song_id !== "undefined"){
                     this.current = song;
 
                 
@@ -166,12 +185,16 @@
 
                 }
            
+                //setting the isPlaying variable to true on click//
+
                 this.isPlaying = true;
             },
 
             pause (){
 
 
+                //setting the isPlaying variable to false on click//
+                
                 this.isPlaying = false;
             },
 
@@ -191,6 +214,8 @@
 
 
         created() {
+
+            //defining current before mount//
 
             this.current = this.songs[this.index];
 
