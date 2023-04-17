@@ -1,46 +1,165 @@
 <template>
-    <div>
-        <article>
+    <div class="parent">
+        <section class="section_main">
+            <article>
+                <span class="main_span">
 
-            <span>
-
-                <button @click="show_post">PLAY MUSIC</button>
-
-
+                    <h2 class="song_title">{{ current.title }} - <span>{{ current.artist }}</span></h2>
             
+                    <button class="prev">PREV</button>
+                    <button class="play" v-if="isPlaying" @click="play">PLAY</button>
+                    <button class="pause" v-else>PAUSE</button>
+                    <button class="next">NEXT</button>
+                    
+                </span>
 
-      
-            </span>
-
-        </article>
+            </article>
+        </section>
     </div>
 </template>
 
 <script>
     export default {
-        
-        props: {
 
 
-            post: Object
+
+
+        data() {
+            return {
+
+                isPlaying: false,
+
+                index: 0,
+
+                current:{},
+          
+                songs: [{
+
+
+                    title: `Roller Mobster`,
+
+                    artist: `Carpenter Brut`,
+
+                    song_id: 7,
+
+                    image_url: `https://m.media-amazon.com/images/I/51PHl1VZO3L._AC_SX342_.jpg`
+
+                },
+                {
+
+                    title: `Dimished to B`,
+
+                    artist: `Necrophagist`,
+
+                    song_id: 5,
+
+                    image_url: `https://upload.wikimedia.org/wikipedia/en/thumb/a/af/Epitaph_cover.jpg/220px-Epitaph_cover.jpg`
+
+
+                },
+                {
+                    title: `Confine of Shadows`,
+
+                    artist: `Disincarnate`,
+
+                    song_id: 8,
+
+                    image_url: `https://upload.wikimedia.org/wikipedia/en/f/f9/Disincarnate.jpg`
+
+
+                },
+                {
+
+                    title: `The planet that once used to absorb flesh in order to achieve divinity and immortality(suffocated to the flesh it desired)`,
+
+                    artist: `Demilich`,
+
+                    song_id: 9,
+
+                    image_url: `https://upload.wikimedia.org/wikipedia/en/thumb/1/10/Nespithe.JPG/220px-Nespithe.JPG`
+
+
+                },
+                {
+
+                    title: `Raining Steel`,
+
+                    artist: `Perturbator`,
+
+                    song_id: 10,
+
+                    image_url: `https://i.scdn.co/image/3092c7fb063d40e02cb9c890dad854bd1e34fbfc`
+
+
+                },
+
+            ]
+
+            }
         },
 
-        methods:{
+        methods: {
 
-            show_post(post) {
+            play (song) {
 
-                this.chosen_song= post;
-            },
+                if(typeof song.title != undefined){
+                    this.current = song;
+
+
+                }
+
+            }
+
 
         },
 
-        mounted:(){
-            this.$root.$on(`highlight_post`, this.show_post)
+
+        created() {
+
+            this.current = this.songs[this.index];
+
+
         }
-
     }
 </script>
 
 <style scoped>
 
+
+
+.section_main{
+
+    display: grid;
+
+    align-items: center;
+
+    justify-items: center;
+
+
+}
+
+
+.main_span{
+
+    display:grid;
+
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+
+    align-items: center;
+
+    justify-items: center;
+}
+
+button{
+
+
+    display: grid;
+
+    width: 300px;
+
+    align-items: center;
+
+
+    justify-items: center;
+}
 </style>

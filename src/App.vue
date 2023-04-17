@@ -1,7 +1,7 @@
 <template>
   <div>
     <header class="Page_Header"><page-header></page-header></header>
-    <main class="Page_Main"><page-main></page-main></main>
+    <main class="Page_Main"><song-display></song-display></main>
     <footer class="Page_Footer"><page-footer></page-footer></footer>
   </div>
 </template>
@@ -9,8 +9,7 @@
 <script>
 import PageHeader from './components/PageHeader.vue';
 import PageFooter from './components/PageFooter.vue';
-import PageMain from './components/PageMain.vue';
-
+import SongDisplay from './components/SongDisplay.vue';
 
 export default {
   name: 'Layout_Page',
@@ -18,7 +17,8 @@ export default {
 
     PageHeader,
     PageFooter,
-    PageMain,
+    SongDisplay,
+
    
   }
 }
