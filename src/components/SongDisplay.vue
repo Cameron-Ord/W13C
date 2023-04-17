@@ -18,7 +18,7 @@
                         <span class="buttons_span">
                         <button class="prev">PREV</button>
 
-                        <button class="play" v-if="!isPlaying" @click="play">Play</button>
+                        <button class="play" v-if="!isPlaying" @click="play">PLAY</button>
 
                         <button class="pause" v-else @click="pause">PAUSE</button>
 
@@ -80,7 +80,7 @@
 
                     image_url: `https://m.media-amazon.com/images/I/51PHl1VZO3L._AC_SX342_.jpg`,
 
-                    src: require(`../assets/raining-steel.mp3`)
+                    src: require(`../assets/roller-mobster.mp3`)
 
    
 
@@ -97,7 +97,7 @@
 
                     image_url: `https://upload.wikimedia.org/wikipedia/en/thumb/a/af/Epitaph_cover.jpg/220px-Epitaph_cover.jpg`,
 
-                    src: require(`../assets/raining-steel.mp3`)
+                    src: require(`../assets/dimished-to-b.mp3`)
          
 
 
@@ -111,7 +111,7 @@
 
                     image_url: `https://upload.wikimedia.org/wikipedia/en/f/f9/Disincarnate.jpg`,
 
-                    src: require(`../assets/raining-steel.mp3`)
+                    src: require(`../assets/confine-of-shadows.mp3`)
 
          
 
@@ -127,7 +127,7 @@
 
                     image_url: `https://upload.wikimedia.org/wikipedia/en/thumb/1/10/Nespithe.JPG/220px-Nespithe.JPG`,
 
-                    src: require(`../assets/raining-steel.mp3`)
+                    src: require(`../assets/planet.mp3`)
 
                     
 
