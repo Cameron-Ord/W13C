@@ -2,16 +2,20 @@
         <div class="parent">
             <section class="section_main">
                 <article class="main_article">
-                    <div class="main_span">
-                        <span class="selection_span">
-                            <span ref="selection">
+                        <div class="main_span">
+
+                            <div class="pick_song" ref="display">
+                            <p v-if="!isPlaying">pick a song</p>
+                            <!--if isPlaying = false, injects 'now playing'-->
+                        </div>
+                            <span v-if="isPlaying" class="selection_span">
+                            
+                                <span ref="selection">
 
                         
                         
                      
-                            <p v-if="!isPlaying">pick a song</p>
-                        <!--if isPlaying = false, injects 'now playing'-->
-                        <p v-else></p>
+                    
 
                             <!--displaying the selected title using a current variable-->
                             <h3 v-if="isPlaying" class="song_title">{{ current[`title`] }}</h3>
@@ -175,42 +179,34 @@
         methods: {
 
             //methods containing the respective functions//
+            pause (){
 
+                //setting the isPlaying variable to false on click//
+                this.isPlaying = false;
+        },
         
             play (song) {
 
                 //if the song_id is not undefined, make current equal to the song object//
 
                 if(typeof song[`song_id`] !== "undefined"){
-                    this.current = song;
+                    this.current = song
+                      //setting the isPlaying variable to true on click//
 
-
-                    if(this.$refs[`selection`][`style`][`grid-template-rows`] !== `1fr 1fr 1fr`){
-
-                        this.$refs[`selection`][`style`][`grid-template-rows`] = `10vh 10vh 10vh`;
-
-                    } else {
-
-
-                        this.$refs[`selection`][`style`][`grid-template-rows`] === "null";
-                    }
-                
+                    this.isPlaying = true;
           
 
+
+                }
+
+                if(this.isPlaying === true){
+
+                    this.$refs[`display`][`style`][`display`] = `none`;
                 }
            
-                //setting the isPlaying variable to true on click//
-
-                this.isPlaying = true;
+          
             },
 
-            pause (){
-
-
-                //setting the isPlaying variable to false on click//
-
-                this.isPlaying = false;
-            },
 
             next(){
 
@@ -281,6 +277,8 @@
 .parent>.section_main>.main_article>.main_span{
 
 
+
+
     width: 100%;
 
     display: grid;
@@ -290,6 +288,18 @@
     align-items: center;
 
 }
+
+.parent>.section_main>.main_article>.main_span>.pick_song>p{
+
+    padding: 25px;
+
+    background-color: #F79824;
+
+    border-radius: 25px;
+
+
+}
+
 .parent>.section_main>.main_article>.main_span>.selection_span{
 
     display: grid;
@@ -301,6 +311,8 @@
     text-align: center;
 
     width: 100%;
+
+  
 
 }
 
@@ -324,7 +336,7 @@ margin-top: 25px;
 
 margin-bottom: 25px;
 
-
+grid-template-rows: 15vh 3vh 1fr;
 }
 
 .selection_span>span>h3{
