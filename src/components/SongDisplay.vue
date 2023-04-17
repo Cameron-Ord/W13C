@@ -4,8 +4,9 @@
                 <article class="main_article">
                         <div class="main_span">
 
-                            <div class="pick_song" ref="display">
+                            <div class="pick_song">
                             <p v-if="!isPlaying">pick a song</p>
+                            <p v-else>now playing</p>
                             <!--if isPlaying = false, injects 'now playing'-->
                         </div>
                             <span v-if="isPlaying" class="selection_span">
@@ -178,13 +179,7 @@
 
         methods: {
 
-            //methods containing the respective functions//
-            pause (){
 
-                //setting the isPlaying variable to false on click//
-                this.isPlaying = false;
-        },
-        
             play (song) {
 
                 //if the song_id is not undefined, make current equal to the song object//
@@ -199,13 +194,15 @@
 
                 }
 
-                if(this.isPlaying === true){
-
-                    this.$refs[`display`][`style`][`display`] = `none`;
-                }
-           
+      
           
             },
+            //methods containing the respective functions//
+            pause (){
+
+//setting the isPlaying variable to false on click//
+this.isPlaying = false;
+},
 
 
             next(){
@@ -245,6 +242,8 @@
     justify-items: center;
 
     align-items: center;
+
+    color: #31393C;
 }
 
 .parent>.section_main{
@@ -289,6 +288,17 @@
 
 }
 
+.parent>.section_main>.main_article>.main_span>.pick_song{
+
+display: grid;
+
+grid-template-rows: 1fr;
+
+margin-top: 25px;
+
+width: 75%;
+
+}
 .parent>.section_main>.main_article>.main_span>.pick_song>p{
 
     padding: 25px;
@@ -296,6 +306,8 @@
     background-color: #F79824;
 
     border-radius: 25px;
+
+    font-size: 2em;
 
 
 }

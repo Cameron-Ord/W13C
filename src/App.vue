@@ -32,6 +32,11 @@ export default {
   margin: 0px;
 }
 
+body{
+
+  color: #31393C;
+}
+
 .Page_Header{
 display: grid;
 grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
