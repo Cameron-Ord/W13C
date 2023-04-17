@@ -7,11 +7,27 @@
                     <h2 class="song_title">{{ current.title }} - <span>{{ current.artist }}</span></h2>
             
                     <button class="prev">PREV</button>
-                    <button class="play" v-if="isPlaying" @click="play">PLAY</button>
+                    <button class="play" v-if="!isPlaying" @click="play">PLAY</button>
                     <button class="pause" v-else>PAUSE</button>
                     <button class="next">NEXT</button>
-                    
+             
+                    <p v-if="!isPlaying">pick a song</p>
+                    <p v-else>now playing</p>
                 </span>
+
+            </article>
+            <article class="playlist">
+                <h3>The Playlist</h3>
+
+                <button v-for="song in songs" :key="song.title" @click="play(song)" :class="(song.title == current.title)">{{ song.title }} - {{ song.artist }} </button>
+
+
+               
+              
+
+
+
+
 
             </article>
         </section>
@@ -105,11 +121,23 @@
                 if(typeof song.title != undefined){
                     this.current = song;
 
+                    
 
+                   this.player.artist = this.current.artist;
                 }
+                this.player.play()
+            
+                this.isPlaying = true;
+            },
 
+            pause (){
+
+                this.player.pause();
+                this.isPlaying = false;
             }
 
+            
+    
 
         },
 
@@ -143,7 +171,7 @@
 
     display:grid;
 
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+
 
     align-items: center;
 
