@@ -78,7 +78,7 @@
 
                     image_url: `https://m.media-amazon.com/images/I/51PHl1VZO3L._AC_SX342_.jpg`,
 
-                    src: ``
+                    src: require(`../assets/raining-steel.mp3`)
 
    
 
@@ -95,7 +95,7 @@
 
                     image_url: `https://upload.wikimedia.org/wikipedia/en/thumb/a/af/Epitaph_cover.jpg/220px-Epitaph_cover.jpg`,
 
-                    src: ``
+                    src: require(`../assets/raining-steel.mp3`)
          
 
 
@@ -109,7 +109,7 @@
 
                     image_url: `https://upload.wikimedia.org/wikipedia/en/f/f9/Disincarnate.jpg`,
 
-                    src: ``
+                    src: require(`../assets/raining-steel.mp3`)
 
          
 
@@ -125,7 +125,9 @@
 
                     image_url: `https://upload.wikimedia.org/wikipedia/en/thumb/1/10/Nespithe.JPG/220px-Nespithe.JPG`,
 
-                    src: `https://www.youtube.com/watch?v=P6Xv10P73Pk&ab_channel=alreadytakenthe3rd`
+                    src: require(`../assets/raining-steel.mp3`)
+
+                    
 
 
 
