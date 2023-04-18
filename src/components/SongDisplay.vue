@@ -471,6 +471,8 @@ grid-template-rows: 0.7fr 5vh 1fr;
 
     align-items: center;
 
+    grid-auto-flow: row;
+
     width: 80%;
 
     margin-top: 25px;
@@ -500,7 +502,9 @@ justify-items: center;
 
 align-items: center;
 
-width: 70%;
+width: 80%;
+
+height: 100px;
 
 }
 
@@ -546,7 +550,7 @@ width: 70%;
 .parent>.section_main>.main_article>.main_span>.pick_song{
 
 
-    width: 60%;
+    width: 70%;
 
 }
 .parent>.section_main>.main_article>.main_span>.pick_song>p{
@@ -562,7 +566,7 @@ width: 70%;
 .parent>.section_main>.main_article>.main_span>.selection_span>span{
 
 
-width: 60%;
+width: 70%;
 
 }
 
@@ -579,7 +583,7 @@ width: 60%;
 .parent>.section_main>.main_article>.main_span>.buttons_span{
 
 
-    width: 60%;
+    width: 70%;
 }  
 
 .parent>.section_main>.main_article>.main_span>.buttons_span>button{
@@ -595,7 +599,7 @@ width: 60%;
 
 
 
-    width: 60%;
+    width: 70%;
 
 }
 
