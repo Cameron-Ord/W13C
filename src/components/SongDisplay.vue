@@ -200,6 +200,8 @@
 
                     this.player.src = this.current.src;
           
+                    this.isPlaying = false;
+
 
 
                 }
