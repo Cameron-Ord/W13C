@@ -66,4 +66,37 @@ align-items: center;
 background-color: #F79824;
 width: 100%;
 }
+@media only screen and (min-width: 700px){
+
+.Page_Header{
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+}
+
+.Page_Main{
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+}
+
+.Page_Footer{
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+}
+
+}
+
+
+@media only screen and (min-width: 1200px){
+
+.Page_Header{
+  grid-template-columns: repeat(auto-fit, minmax(700px, 1fr));
+}
+
+.Page_Main{
+  grid-template-columns: repeat(auto-fit, minmax(700px, 1fr));
+}
+
+.Page_Footer{
+  grid-template-columns: repeat(auto-fit, minmax(700px, 1fr));
+}
+
+}
+
 </style>

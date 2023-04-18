@@ -101,7 +101,7 @@ export default {
 
                 artist: `Carpenter Brut`,
 
-                song_id: 7,
+                song_id: 1,
 
                 image_url: `https://m.media-amazon.com/images/I/51PHl1VZO3L._AC_SX342_.jpg`,
 
@@ -118,7 +118,7 @@ export default {
 
                 artist: `Necrophagist`,
 
-                song_id: 5,
+                song_id: 2,
 
                 image_url: `https://upload.wikimedia.org/wikipedia/en/thumb/a/af/Epitaph_cover.jpg/220px-Epitaph_cover.jpg`,
 
@@ -132,7 +132,7 @@ export default {
 
                 artist: `Disincarnate`,
 
-                song_id: 8,
+                song_id: 3,
 
                 image_url: `https://upload.wikimedia.org/wikipedia/en/f/f9/Disincarnate.jpg`,
 
@@ -141,13 +141,29 @@ export default {
 
 
             },
+
+
+            {
+                title: `Glory to the Light of the Nation`,
+
+                artist: `Tommy '86`,
+
+                song_id: 4,
+
+                image_url: `https://i.scdn.co/image/ab67616d0000b273fc3cf8e01cf47a8e15cdbdc8`,
+
+                src: require(`../assets/glory.mp3`)
+
+            },
+
+
             {
 
                 title: `The planet that once used to absorb flesh in order to achieve divinity and immortality(suffocated to the flesh it desired)`,
 
                 artist: `Demilich`,
 
-                song_id: 9,
+                song_id: 5,
 
                 image_url: `https://upload.wikimedia.org/wikipedia/en/thumb/1/10/Nespithe.JPG/220px-Nespithe.JPG`,
 
@@ -163,7 +179,7 @@ export default {
 
                 artist: `Perturbator`,
 
-                song_id: 10,
+                song_id: 6,
 
                 image_url: `https://i.scdn.co/image/3092c7fb063d40e02cb9c890dad854bd1e34fbfc`,
 
@@ -189,6 +205,7 @@ export default {
 
             //if the song.src is not undefined, make current equal to the song object//
 
+            
             if (song[`src`] !== undefined) {
 
                 this.current = song;
@@ -197,9 +214,9 @@ export default {
 
                 this.player.src = this.current.src;
 
-                //stating isPlaying as false inside the if statement to prevent double playback// //not sure if my 'idea' logic is correct on this//
 
-                this.isPlaying = false;
+                
+
 
 
 
@@ -491,5 +508,203 @@ width: 70%;
 
 
     text-overflow: ellipsis;
+}
+
+
+@media only screen and (min-width: 700px){
+
+    .parent{
+
+}
+
+.parent>.section_main{
+
+    grid-template-columns: 1fr 1fr;
+
+}
+
+.parent>.section_main>.main_article{
+
+
+
+
+
+
+}
+
+.parent>.section_main>.main_article>.main_span{
+
+
+
+
+
+
+
+
+}
+
+.parent>.section_main>.main_article>.main_span>.pick_song{
+
+
+    width: 60%;
+
+}
+.parent>.section_main>.main_article>.main_span>.pick_song>p{
+
+
+
+}
+
+.parent>.section_main>.main_article>.main_span>.selection_span{
+
+}
+
+.parent>.section_main>.main_article>.main_span>.selection_span>span{
+
+
+width: 60%;
+
+}
+
+.selection_span>span>h3{
+
+
+}
+.selection_span>span>img{
+
+
+    width: 35%;
+}
+
+.parent>.section_main>.main_article>.main_span>.buttons_span{
+
+
+    width: 60%;
+}  
+
+.parent>.section_main>.main_article>.main_span>.buttons_span>button{
+
+
+
+}
+.parent>.section_main>.playlist{
+
+}
+
+.parent>.section_main>.playlist>.playlist_span{
+
+
+
+    width: 60%;
+
+}
+
+.parent>.section_main>.playlist>.playlist_span>button{
+
+
+
+}
+
+.overflow{
+
+
+}
+
+@media only screen and (min-width: 1200px){
+
+    .parent{
+
+}
+
+.parent>.section_main{
+
+    grid-template-columns: 1fr 1fr;
+
+}
+
+.parent>.section_main>.main_article{
+
+
+
+
+
+
+}
+
+.parent>.section_main>.main_article>.main_span{
+
+
+
+
+
+
+
+
+}
+
+.parent>.section_main>.main_article>.main_span>.pick_song{
+
+
+
+}
+.parent>.section_main>.main_article>.main_span>.pick_song>p{
+
+
+
+}
+
+.parent>.section_main>.main_article>.main_span>.selection_span{
+
+}
+
+.parent>.section_main>.main_article>.main_span>.selection_span>span{
+
+
+
+
+}
+
+.selection_span>span>h3{
+
+
+}
+.selection_span>span>img{
+
+
+}
+
+.parent>.section_main>.main_article>.main_span>.buttons_span{
+
+
+}  
+
+.parent>.section_main>.main_article>.main_span>.buttons_span>button{
+
+
+
+}
+.parent>.section_main>.playlist{
+
+}
+
+.parent>.section_main>.playlist>.playlist_span{
+
+
+
+
+}
+
+.parent>.section_main>.playlist>.playlist_span>button{
+
+
+
+}
+
+.overflow{
+
+
+}
+}
+    
 }
 </style>
