@@ -7,56 +7,64 @@
                             <div class="pick_song">
                             <p v-if="!isPlaying">pick a song</p>
                             <p v-else>now playing</p>
-                            <!--if isPlaying = false, injects 'now playing'-->
+                            <!--if isPlaying = true, injects 'now playing'-->
                         </div>
                             <span v-if="isPlaying" class="selection_span">
                             
-                                <span ref="selection">
-
-                        
-                        
-                     
-                    
-
+                                <span>
                             <!--displaying the selected title using a current variable-->
+
                             <h3 v-if="isPlaying" class="song_title">{{ current[`title`] }}</h3>
                         
                             <h3 v-if="isPlaying"  class="song_artist">{{ current[`artist`] }}</h3>
 
                             <!--binding the image that is selected from the object inside the current variable-->
+
                             <img v-if="isPlaying"  v-bind:src="current[`image_url`]">
                         
                         </span>
                         </span>
             
                         <span class="buttons_span">
-                            <!--Some buttons (prev and next do not work)-->
+
+                        <!--Some buttons (prev and next do not work)-->
+
                         <button class="prev">PREV</button>
+
                         <!--an if statement that will show the play button only if isPlaying is set to false-->
+
                         <!--add event listener set to click to call the play() function-->
+                        
                         <button class="play" v-if="!isPlaying" @click="play">PLAY</button>
+
                         <!--if isPlaying === true, it will show a pause button that calls the pause function-->
+
                         <button class="pause" v-else @click="pause">PAUSE</button>
 
                         <button class="next">NEXT</button>
+
                         <!--if isPlaying is false, injects 'pick a song' p tag-->
             
 
                     </span>
+
                     </div>
 
                 </article>
+
                 <article class="playlist">
 
                     <span class="playlist_span">
 
                     <h3>The Playlist</h3>
+
                     <!--the loop for the selection buttons-->
 
                     <!--clicking calls the play function-->
 
                     <!--the :class selects the song title and makes it equal to the current title-->
-                    <button v-for="song in songs" :key="song[`title`]" @click="play(song)" :class="(song[`title`] == current[`title`])">{{ song[`title`] }} - {{ song[`artist`] }}  </button>
+
+                    <button class="overflow" v-for="song in songs" :key="song[`title`]" @click="play(song)" :class="(song[`title`] == current[`title`])">{{ song[`title`] }} - {{ song[`artist`] }}  </button>
 
                 </span>
                
@@ -103,7 +111,7 @@
 
                     image_url: `https://m.media-amazon.com/images/I/51PHl1VZO3L._AC_SX342_.jpg`,
 
-   
+                    src: require(`../assets/roller-mobster.mp3`)
 
    
 
@@ -120,7 +128,7 @@
 
                     image_url: `https://upload.wikimedia.org/wikipedia/en/thumb/a/af/Epitaph_cover.jpg/220px-Epitaph_cover.jpg`,
 
-
+                    src: require(`../assets/dimished-to-b.mp3`)
          
 
 
@@ -134,7 +142,7 @@
 
                     image_url: `https://upload.wikimedia.org/wikipedia/en/f/f9/Disincarnate.jpg`,
 
-    
+                    src: require(`../assets/confine-of-shadows.mp3`)
          
 
 
@@ -149,7 +157,7 @@
 
                     image_url: `https://upload.wikimedia.org/wikipedia/en/thumb/1/10/Nespithe.JPG/220px-Nespithe.JPG`,
 
-              
+                    src: require(`../assets/planet.mp3`)
                     
 
 
@@ -165,14 +173,16 @@
 
                     image_url: `https://i.scdn.co/image/3092c7fb063d40e02cb9c890dad854bd1e34fbfc`,
 
-                 
+                    src: require(`../assets/raining-steel.mp3`)
+
+                    
 
 
                 },
 
             ],
 
-         
+         player: new Audio()
 
             }
         },
@@ -182,27 +192,36 @@
 
             play (song) {
 
-                //if the song_id is not undefined, make current equal to the song object//
+                //if the song.src is not undefined, make current equal to the song object//
 
-                if(typeof song[`song_id`] !== "undefined"){
-                    this.current = song
-                      //setting the isPlaying variable to true on click//
+                if(song[`src`] !== undefined){
 
-                    this.isPlaying = true;
+                    this.current = song;                      //setting the isPlaying variable to true on click//
+
+                    this.player.src = this.current.src;
           
 
 
                 }
 
+                this.player.play();
+                this.isPlaying = true;
       
+
           
             },
+
             //methods containing the respective functions//
+
             pause (){
 
-//setting the isPlaying variable to false on click//
-this.isPlaying = false;
-},
+
+                //setting the isPlaying variable to false on click//
+
+                this.player.pause();
+                this.isPlaying = false;
+
+            },
 
 
             next(){
@@ -222,10 +241,11 @@ this.isPlaying = false;
 
         created() {
 
-            //defining current before mount//
+            //defining current before mount, this gives the index for the case of using next/prev buttons//
 
             this.current = this.songs[this.index];
 
+            this.player.src = this.current.src;
 
 
         }
@@ -340,6 +360,8 @@ text-align: center;
 
 width: 80%;
 
+
+
 background-color: #F79824;
 
 border-radius: 50px;
@@ -348,7 +370,7 @@ margin-top: 25px;
 
 margin-bottom: 25px;
 
-grid-template-rows: 15vh 3vh 1fr;
+grid-template-rows: 0.7fr 5vh 1fr;
 }
 
 .selection_span>span>h3{
@@ -358,8 +380,8 @@ grid-template-rows: 15vh 3vh 1fr;
 }
 .selection_span>span>img{
 
-    height: 200px;
-    width: 200px;
+    height: 75%;
+    width: 75%;
     border-radius: 25px;
     margin-top: 50px;
     margin-bottom: 50px;
@@ -441,6 +463,8 @@ grid-template-rows: 15vh 3vh 1fr;
 
     border-radius: 50px;
 
+    text-overflow: ellipsis;
+
 
   
 
@@ -456,5 +480,11 @@ align-items: center;
 
 width: 70%;
 
+}
+
+.overflow{
+
+
+    text-overflow: ellipsis;
 }
 </style>
